@@ -79,6 +79,7 @@ import org.springframework.util.StringUtils;
  * @author Josh Long
  * @author Kazuki Shimizu
  * @author Eduardo Macarrón
+ * 开始学习springobootstarter mybatis
  */
 @org.springframework.context.annotation.Configuration
 @ConditionalOnClass({ SqlSessionFactory.class, SqlSessionFactoryBean.class })
