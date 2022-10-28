@@ -13,60 +13,45 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package sample.mybatis.xml.domain;
+package sample.mybatis.xml.mapper;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+import javax.annotation.Generated;
 import java.io.Serializable;
 
 /**
  * @author Eddú Meléndez
  */
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "CITY")
 public class City implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @Id
   private Long id;
 
+  @Column
   private String name;
 
+  @Column
   private String state;
 
+  @Column
   private String country;
-
-  public Long getId() {
-    return this.id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getState() {
-    return this.state;
-  }
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
-  public String getCountry() {
-    return this.country;
-  }
-
-  public void setCountry(String country) {
-    this.country = country;
-  }
 
   @Override
   public String toString() {
     return getId() + "," + getName() + "," + getState() + "," + getCountry();
   }
-
 }

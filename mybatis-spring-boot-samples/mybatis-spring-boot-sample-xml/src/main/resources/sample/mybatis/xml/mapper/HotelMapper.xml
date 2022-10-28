@@ -23,4 +23,7 @@
     <select id="selectByCityId" resultType="Hotel">
         select city, name, address, zip from hotel where city = #{id}
     </select>
+    <select id="findById" resultType="Hotel">
+        select city, name, address, zip from hotel where zip = #{id}
+    </select>
 </mapper>

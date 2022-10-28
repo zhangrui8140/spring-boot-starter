@@ -16,9 +16,12 @@
 package sample.mybatis.xml.dao;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import sample.mybatis.xml.domain.City;
+import sample.mybatis.xml.mapper.City;
 
 /**
  * @author Eddú Meléndez
@@ -27,6 +30,28 @@ import sample.mybatis.xml.domain.City;
 public class CityDao {
 
   private final SqlSession sqlSession;
+
+  private JdbcTemplate jdbcTemplate;
+
+  private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+  public JdbcTemplate getJdbcTemplate() {
+    return jdbcTemplate;
+  }
+
+  @Autowired
+  public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+    this.jdbcTemplate = jdbcTemplate;
+  }
+
+  public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
+    return namedParameterJdbcTemplate;
+  }
+
+  @Autowired
+  public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+  }
 
   public CityDao(SqlSession sqlSession) {
     this.sqlSession = sqlSession;

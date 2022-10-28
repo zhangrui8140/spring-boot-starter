@@ -22,7 +22,7 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 
-import sample.mybatis.xml.domain.City;
+import sample.mybatis.xml.mapper.City;
 
 /**
  * Tests for {@link CityDao}.

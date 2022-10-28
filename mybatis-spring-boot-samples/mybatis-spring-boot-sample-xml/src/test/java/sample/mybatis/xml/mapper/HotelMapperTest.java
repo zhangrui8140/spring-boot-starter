@@ -21,8 +21,6 @@ import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import sample.mybatis.xml.domain.Hotel;
-
 /**
  * Tests for {@link HotelMapper}.
  *

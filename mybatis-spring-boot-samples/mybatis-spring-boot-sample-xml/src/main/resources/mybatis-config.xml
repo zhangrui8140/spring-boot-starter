@@ -21,7 +21,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="sample.mybatis.xml.domain"/>
+        <package name="sample.mybatis.xml.mapper"/>
     </typeAliases>
     <mappers>
         <mapper resource="sample/mybatis/xml/mapper/CityMapper.xml"/>

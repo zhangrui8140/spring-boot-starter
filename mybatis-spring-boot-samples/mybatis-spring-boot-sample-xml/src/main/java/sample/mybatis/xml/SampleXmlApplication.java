@@ -15,12 +15,17 @@
  */
 package sample.mybatis.xml;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import sample.mybatis.xml.dao.CityDao;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.jdbc.repository.config.MyBatisJdbcConfiguration;
+import sample.mybatis.xml.mapper.CityMapper;
 import sample.mybatis.xml.mapper.HotelMapper;
+import sample.mybatis.xml.repositories.jdbc.CityJDBCDao;
+import sample.mybatis.xml.service.CityHotelManage;
+
 
 @SpringBootApplication
 public class SampleXmlApplication implements CommandLineRunner {
@@ -29,11 +34,18 @@ public class SampleXmlApplication implements CommandLineRunner {
     SpringApplication.run(SampleXmlApplication.class, args);
   }
 
-  private final CityDao cityDao;
+  private final CityMapper cityDao;
 
   private final HotelMapper hotelMapper;
 
-  public SampleXmlApplication(CityDao cityDao, HotelMapper hotelMapper) {
+  @Autowired
+  private CityHotelManage cityHotelManage;
+
+
+  @Autowired
+  private CityJDBCDao cityJDBCDao;
+
+  public SampleXmlApplication(CityMapper cityDao, HotelMapper hotelMapper) {
     this.cityDao = cityDao;
     this.hotelMapper = hotelMapper;
   }
@@ -41,8 +53,12 @@ public class SampleXmlApplication implements CommandLineRunner {
   @Override
   @SuppressWarnings("squid:S106")
   public void run(String... args) {
-    System.out.println(this.cityDao.selectCityById(1));
-    System.out.println(this.hotelMapper.selectByCityId(1));
+    //this.cityRepository.findAll().forEach(c-> System.out.println(c));
+    //cityHotelManage.createCityHotel();
+    //this.cityHotelManage.getHotelRepository().findAll().forEach(c->System.out.println("####################SQL结果输出2"+ c));//this.cityHotelManage.getHotelRepository().findAll().iterator().next());
+    //System.out.println(this.cityDao.findByState("CA"));
+    //System.out.println(this.hotelMapper.selectByCityId(1));
+    System.out.println(cityJDBCDao.selectCityById(1));
   }
 
 }

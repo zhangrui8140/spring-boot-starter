@@ -16,14 +16,13 @@
 package sample.mybatis.xml.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-
-import sample.mybatis.xml.domain.Hotel;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * @author Eduardo Macarron
  */
 @Mapper
-public interface HotelMapper {
+public interface HotelMapper{
 
   Hotel selectByCityId(int cityId);
 
